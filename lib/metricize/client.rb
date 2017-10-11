@@ -53,7 +53,7 @@ module Metricize
     end
 
     def sanitize(name)
-      name.to_s.strip.downcase.gsub(' ', '_').gsub(/[^a-z0-9._]/, '')
+      name.to_s.strip.downcase.gsub(' ', '_').gsub(/[^a-z0-9._]/, '')[0,255]
     end
 
     def prepare_metric(name, value, options)
