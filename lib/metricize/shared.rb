@@ -4,7 +4,7 @@ module Metricize
     def establish_redis_connection
       log_message "metricize_version=#{VERSION} connecting to Redis at #{@queue_host}:#{@queue_port}", :info
       with_error_handling do
-        @redis = Redis.connect(:host => @queue_host, :port => @queue_port)
+        @redis = Redis.new(:host => @queue_host, :port => @queue_port)
         @redis.ping
       end
     end
